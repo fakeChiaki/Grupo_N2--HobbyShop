@@ -1,0 +1,352 @@
+.desktop {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.desktop .overlap-wrapper {
+  background-color: #ffffff;
+  width: 1157px;
+  height: 952px;
+}
+
+.desktop .overlap {
+  position: relative;
+  height: 952px;
+  background-image: url(https://c.animaapp.com/Z6jsJ6Nm/img/rectangle-20.svg);
+  background-size: 100% 100%;
+}
+
+.desktop .overlap-group {
+  position: absolute;
+  width: 1157px;
+  height: 177px;
+  top: 8px;
+  left: 0;
+}
+
+.desktop .group {
+  position: absolute;
+  width: 1157px;
+  height: 173px;
+  top: 0;
+  left: 0;
+}
+
+.desktop .div {
+  position: absolute;
+  width: 1157px;
+  height: 108px;
+  top: 0;
+  left: 0;
+  background-color: #353535;
+}
+
+.desktop .rectangle {
+  position: absolute;
+  width: 591px;
+  height: 54px;
+  top: 16px;
+  left: 285px;
+  background-color: #d9d9d9;
+  border-radius: 50px;
+}
+
+.desktop .ellipse {
+  left: 944px;
+  position: absolute;
+  width: 54px;
+  height: 52px;
+  top: 16px;
+  background-color: #d9d9d9;
+  border-radius: 27px/26px;
+}
+
+.desktop .ellipse-2 {
+  left: 1066px;
+  position: absolute;
+  width: 54px;
+  height: 52px;
+  top: 16px;
+  background-color: #d9d9d9;
+  border-radius: 27px/26px;
+}
+
+.desktop .overlap-2 {
+  position: absolute;
+  width: 1157px;
+  height: 65px;
+  top: 108px;
+  left: 0;
+  background-color: #d9d9d9;
+}
+
+.desktop .img {
+  position: absolute;
+  width: 418px;
+  height: 65px;
+  top: 0;
+  left: 739px;
+}
+
+.desktop .rectangle-2 {
+  position: absolute;
+  width: 277px;
+  height: 65px;
+  top: 0;
+  left: 462px;
+}
+
+.desktop .rectangle-3 {
+  position: absolute;
+  width: 462px;
+  height: 65px;
+  top: 0;
+  left: 0;
+}
+
+.desktop .image {
+  width: 98px;
+  height: 95px;
+  top: 0;
+  left: 115px;
+  position: absolute;
+  object-fit: cover;
+}
+
+.desktop .icono-usuario {
+  position: absolute;
+  width: 95px;
+  height: 64px;
+  top: 15px;
+  left: 1043px;
+  object-fit: cover;
+}
+
+.desktop .icono-carrito {
+  position: absolute;
+  width: 55px;
+  height: 53px;
+  top: 22px;
+  left: 941px;
+  object-fit: cover;
+}
+
+.desktop .text-wrapper {
+  position: absolute;
+  width: 566px;
+  height: 45px;
+  top: 27px;
+  left: 295px;
+  opacity: 0.5;
+  font-family: "Inter", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.desktop .text-wrapper-2 {
+  position: absolute;
+  width: 275px;
+  height: 63px;
+  top: 114px;
+  left: 86px;
+  font-family: "Inter", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 24px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.desktop .text-wrapper-3 {
+  position: absolute;
+  width: 274px;
+  height: 65px;
+  top: 112px;
+  left: 463px;
+  font-family: "Inter", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 24px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.desktop .text-wrapper-4 {
+  position: absolute;
+  width: 271px;
+  height: 61px;
+  top: 116px;
+  left: 832px;
+  font-family: "Inter", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 24px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.desktop .overlap-3 {
+  position: absolute;
+  width: 600px;
+  height: 384px;
+  top: 275px;
+  left: 72px;
+  background-color: #d9d9d9;
+  border-radius: 10px;
+}
+
+.desktop .p {
+  position: absolute;
+  width: 574px;
+  height: 41px;
+  top: 11px;
+  left: 16px;
+  font-family: "Inter", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 24px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.desktop .detalle-monto-de {
+  position: absolute;
+  width: 349px;
+  top: 86px;
+  left: 16px;
+  font-family: "Inter", Helvetica;
+  font-weight: 400;
+  color: transparent;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.desktop .span {
+  color: #000000;
+}
+
+.desktop .text-wrapper-5 {
+  color: #262eea;
+}
+
+.desktop .image-2 {
+  width: 119px;
+  height: 119px;
+  top: 87px;
+  left: 447px;
+  position: absolute;
+  object-fit: cover;
+}
+
+.desktop .rectangle-4 {
+  position: absolute;
+  width: 119px;
+  height: 119px;
+  top: 206px;
+  left: 447px;
+  object-fit: cover;
+}
+
+.desktop .overlap-4 {
+  position: absolute;
+  width: 250px;
+  height: 64px;
+  top: 786px;
+  left: 72px;
+  background-color: #d9d9d9;
+  border-radius: 50px;
+}
+
+.desktop .rectangle-5 {
+  position: absolute;
+  width: 250px;
+  height: 64px;
+  top: 0;
+  left: 0;
+  background-color: #d9d9d9;
+  border-radius: 50px;
+}
+
+.desktop .text-wrapper-6 {
+  position: absolute;
+  width: 224px;
+  height: 44px;
+  top: 10px;
+  left: 13px;
+  font-family: "Inter", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 24px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.desktop .div-wrapper {
+  position: absolute;
+  width: 250px;
+  height: 64px;
+  top: 786px;
+  left: 422px;
+  background-color: #d9d9d9;
+  border-radius: 50px;
+}
+
+.desktop .text-wrapper-7 {
+  position: absolute;
+  width: 226px;
+  height: 38px;
+  top: 12px;
+  left: 11px;
+  font-family: "Inter", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 24px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.desktop .overlap-5 {
+  position: absolute;
+  width: 303px;
+  height: 574px;
+  top: 276px;
+  left: 777px;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+}
+
+.desktop .boleta-electr-nica {
+  position: absolute;
+  width: 301px;
+  top: 8px;
+  left: 2px;
+  font-family: "Inter", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.desktop .rectangle-6 {
+  position: absolute;
+  width: 296px;
+  height: 128px;
+  top: 334px;
+  left: 4px;
+  object-fit: cover;
+}
