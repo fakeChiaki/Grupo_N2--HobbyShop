@@ -5,7 +5,6 @@
             <div class="form-group">
                 <label class="email" for="email">Correo electrónico</label>
                 <input type="email" id="email" v-model="email" placeholder="ejemplo@gmail.com" required>
-
                 <label class="password" for="password">Contraseña</label>
                 <input type="password" id="password" v-model="password" placeholder="Introducir contraseña..." required>
             </div>
@@ -32,10 +31,10 @@ export default {
             localStorage.setItem('isLoggedIn', true);
             localStorage.setItem('email', this.email);
             localStorage.setItem('password', this.password);
-            this.$router.go(-1);
+            this.$router.push('/');
         }
     }
-};
+}
 </script>
 
 <style scoped>
@@ -57,7 +56,6 @@ h2 {
     margin: -30px 10rem;
     margin-bottom: 100px;
     border-radius: 15px;
-    
 }
 
 form {
@@ -80,7 +78,7 @@ form {
 label {
     background-color: #528BE6;
     padding: 2px;
-    margin-right: auto; 
+    margin-right: auto;
     border-radius: 15px;
     margin-bottom: 10px;
 }
@@ -124,7 +122,6 @@ button {
     padding: 7px 20px;
     color: white;
     background-color: #528BE6;
-
 }
 
 span a {

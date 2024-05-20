@@ -10,6 +10,7 @@ import Login from './components/Views/Login.vue';
 import Register from './components/Views/Register.vue';
 import Principal from './components/Views/Principal.vue';
 import VistaProducto from './components/Views/VistaProducto.vue';
+
 //Definir Rutas
 const routes = [
 { path: "/", component: Home },
@@ -17,7 +18,7 @@ const routes = [
 { path: "/Profile", component: Profile },
 { path: "/Login", component: Login },
 { path: "/Register", component: Register},
-{ path: "/Principal", component:Principal},
+{ path: "/Principal", component: Principal},
 { path: "/VistaProducto", component: VistaProducto}
 ]
 
