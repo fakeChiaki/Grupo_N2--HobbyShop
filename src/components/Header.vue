@@ -144,11 +144,10 @@ header {
 .magglass {
   position: absolute;
   cursor: pointer;
-  background:black;
   border-radius: 75%;
   transform: translateY(-50%);
   margin-left: 295px;
-  margin-top: 30px;
+  margin-top: 33px;
 }
 
 input {

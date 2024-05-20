@@ -7,6 +7,7 @@ import Home from "./components/Views/Home.vue";
 import ShoppingCart from './components/Views/ShoppingCart.vue';
 import Profile from './components/Views/Profile.vue';
 import Login from './components/Views/Login.vue';
+import Register from './components/Views/Register.vue';
 
 //Definir Rutas
 const routes = [
@@ -14,6 +15,7 @@ const routes = [
 { path: "/ShoppingCart", component: ShoppingCart },
 { path: "/Profile", component: Profile },
 { path: "/Login", component: Login },
+{ path: "/Register", component: Register}
 ]
 
 //Crear Router

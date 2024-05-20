@@ -3,16 +3,18 @@
         <h2>Login</h2>
         <form @submit.prevent="login">
             <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" v-model="email" placeholder="Insert Email..." required>
+                <label class="email" for="email">Correo electrónico</label>
+                <input type="email" id="email" v-model="email" placeholder="ejemplo@gmail.com" required>
+
+                <label class="password" for="password">Contraseña</label>
+                <input type="password" id="password" v-model="password" placeholder="Introducir contraseña..." required>
             </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" v-model="password" placeholder="Type Password..."required>
+            <div class="bottom">
+                <button type="submit">Login</button>
+                <span>No tienes una cuenta? <router-link to="/Register">Registrate aquí!</router-link></span>
             </div>
-            <button type="submit">Login</button>
-            
         </form>
+
     </div>
 </template>
 
@@ -28,8 +30,8 @@ export default {
         login() {
             this.$root.isAuthenticated = true;
             localStorage.setItem('isLoggedIn', true);
-            /*localStorage.setItem('email', this.email);
-            localStorage.setItem('password', this.password); */
+            localStorage.setItem('email', this.email);
+            localStorage.setItem('password', this.password);
             this.$router.go(-1);
         }
     }
@@ -37,5 +39,100 @@ export default {
 </script>
 
 <style scoped>
+.login {
+    color: white;
+    background-color: #103973;
+    margin: 0px 33rem;
+    padding: 7rem 0 7rem 0;
+    margin-top: 100px;
+    border-radius: 15px;
+    font-family: Arial, sans-serif;
+}
 
+h2 {
+    display: flex;
+    justify-content: center;
+    background-color: #295A94;
+    padding: 15px;
+    margin: -30px 10rem;
+    margin-bottom: 100px;
+    border-radius: 15px;
+    
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 20vh;
+}
+
+.form-group {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 50px;
+}
+
+label {
+    background-color: #528BE6;
+    padding: 2px;
+    margin-right: auto; 
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+
+label:first-child {
+    margin-top: 30px;
+}
+
+input {
+    color: white;
+    background-color: #528BE6;
+    border-radius: 7px;
+    padding: 10px 10px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+
+input::placeholder {
+    color: black;
+    font-weight: 500;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #528BE6 inset !important;
+    color: white !important;
+}
+
+.bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+button {
+    border-radius: 7px;
+    padding: 7px 20px;
+    color: white;
+    background-color: #528BE6;
+
+}
+
+span a {
+    color: white;
+    text-decoration: underline;
+}
+
+span {
+    margin-top: 20px;
+}
 </style>
