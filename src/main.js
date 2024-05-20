@@ -6,12 +6,14 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from "./components/Views/Home.vue";
 import ShoppingCart from './components/Views/ShoppingCart.vue';
 import Profile from './components/Views/Profile.vue';
+import Login from './components/Views/Login.vue';
 
 //Definir Rutas
 const routes = [
 { path: "/", component: Home },
 { path: "/ShoppingCart", component: ShoppingCart },
-{ path: "/Profile", component: Profile }
+{ path: "/Profile", component: Profile },
+{ path: "/Login", component: Login },
 ]
 
 //Crear Router
