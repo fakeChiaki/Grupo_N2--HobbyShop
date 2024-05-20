@@ -18,8 +18,13 @@ const routes = [
 { path: "/Profile", component: Profile },
 { path: "/Login", component: Login },
 { path: "/Register", component: Register},
+<<<<<<< Updated upstream
 { path: "/Principal", component: Principal},
 { path: "/VistaProducto", component: VistaProducto}
+=======
+{ path: "/Principal", component:Principal},
+{ path: "/VistaProducto/:id", component: VistaProducto}
+>>>>>>> Stashed changes
 ]
 
 //Crear Router

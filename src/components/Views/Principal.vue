@@ -1,20 +1,23 @@
 <template>
+    <Header />
     <div class="row">
       <card
         v-for="productos in productos"
         :key="productos.id"
-        :titulo="productos.titulo"
+        :nombreproducto="productos.nombreproducto"
         :precio="productos.precio"
         :imageUrl="productos.imageUrl"
         class="card"
       />
     </div>
   </template>
-  
+  <script setup>
+  import Header from "../Header.vue";
+  </script>
   <script>
-  import Card from '../Card.vue';
- 
+
   import axios from 'axios';
+import Card from '../Card.vue';
   export default {
     components: {
       Card
@@ -41,19 +44,21 @@
 
   }
   </script>
-  <style scoped>
+  <style >
   .row {
+    
     display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
   }
   .card {
-    flex: 0 1 calc(33.33% - 20px); /* Ancho aproximado para tres columnas con espacio entre ellas */
+    flex: 0 1 calc(20% - 20px); 
   margin-bottom: 20px;
-  margin-right: 20px; /* Espacio entre cada tarjeta */
+  margin-top: 20px;
+  margin-right: 20px;
 
 }
 .card:nth-child(3n) {
-  margin-right: 0; /* Elimina el margen derecho de la última tarjeta en cada fila */
+  margin-right: 20px; 
 }
   </style>
