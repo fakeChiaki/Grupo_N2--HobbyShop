@@ -97,6 +97,7 @@ export default {
       localStorage.removeItem('password');
       localStorage.setItem('isLoggedIn', 'false');
       this.isAuthenticated = false;
+
       location.reload();
     },
     handleButtonClick() {
@@ -107,11 +108,11 @@ export default {
       }
     },
     navigateToShoppingCart() {
-      if (this.isAuthenticated) {
-        this.$router.push('/ShoppingCart');
-      } else {
-        this.$router.push('/Login');
-      }
+      // if (this.isAuthenticated) {
+      //   this.$router.push('/ShoppingCart');
+      // } else {
+         this.$router.push('/ShoppingCart');
+      // }
     }
   },
 }

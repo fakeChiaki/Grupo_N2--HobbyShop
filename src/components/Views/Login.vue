@@ -4,9 +4,13 @@
         <form @submit.prevent="login">
             <div class="form-group">
                 <label class="email" for="email">Correo electrónico</label>
-                <input type="email" id="email" v-model="email" placeholder="ejemplo@gmail.com" required>
+                <span>{{ v$.email.$errors[0]?.$message }}</span>
+                <input type="email" id="email" v-model="loginData.email" placeholder="ejemplo@gmail.com" required>
+
                 <label class="password" for="password">Contraseña</label>
-                <input type="password" id="password" v-model="password" placeholder="Introducir contraseña..." required>
+                <span>{{ v$.password.$errors[0]?.$message }}</span>
+                <input type="password" id="password" v-model="loginData.password" placeholder="Introducir contraseña..." required>
+
             </div>
             <div class="bottom">
                 <button type="submit">Login</button>
@@ -17,24 +21,36 @@
     </div>
 </template>
 
-<script>
-export default {
-    data() {
-        return {
-            email: '',
-            password: ''
-        };
-    },
-    methods: {
-        login() {
-            this.$root.isAuthenticated = true;
-            localStorage.setItem('isLoggedIn', true);
-            localStorage.setItem('email', this.email);
-            localStorage.setItem('password', this.password);
-            this.$router.push('/');
-        }
+<script setup>
+
+import useVuelidate from '@vuelidate/core';
+import { maxLength, minLength, required, helpers } from '@vuelidate/validators';
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+const rules = {
+    email: { required: helpers.withMessage("Requerido", required), minLength: helpers.withMessage("Mínimo de 10 caracteres.", minLength(10)) , maxLength: helpers.withMessage("Máximo de 10 catacteres.", maxLength(50))},
+    password: { required: helpers.withMessage("Requerido", required), minLength: helpers.withMessage("Mínimo de 6 caracteres", minLength(6)) , maxLength: helpers.withMessage("Máximo de 30 caracteres.", maxLength(30))  },
+};
+
+const loginData = ref({
+    email: '',
+    password: '',
+});
+
+const v$ = useVuelidate(rules, loginData);
+
+const login = async () => {
+    const result = await v$.value.$validate();
+    if (result) {
+        localStorage.setItem('isLoggedIn', true);
+        localStorage.setItem('email', loginData.value.email);
+        localStorage.setItem('password', loginData.value.password);
+        router.push('/');
     }
-}
+};
 </script>
 
 <style scoped>

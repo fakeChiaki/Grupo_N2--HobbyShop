@@ -4,56 +4,84 @@
         <form @submit.prevent="register">
             <div class="form-group">
                 <label for="name">Nombre de Usuario</label>
-                <input type="name" id="name" v-model="name" placeholder="Inserte Usuario..." required>
+                <span>{{ v$.name.$errors[0]?.$message }}</span>
+                <input type="text" id="name" v-model="registerData.name" placeholder="Inserte Usuario..." required>
 
                 <label for="email">Email</label>
-                <input type="email" id="email" v-model="email" placeholder="ejemplo@gmail.com" required>
+                <span>{{ v$.email.$errors[0]?.$message }}</span>
+                <input type="email" id="email" v-model="registerData.email" placeholder="ejemplo@gmail.com" required>
 
                 <label for="password">Contraseña</label>
-                <input type="password" id="password" v-model="password" placeholder="Ingrese su contraseña..." required>
+                <span>{{ v$.password.$errors[0]?.$message }}</span>
+                <input type="password" id="password" v-model="registerData.password" placeholder="Ingrese su contraseña..." required>
             </div>
             <div class="form-group-2">
                 <label for="confirmPassword">Confirmar Contraseña</label>
-                <input type="Password" id="confirmPassword" v-model="confirmPassword" placeholder="Confirme su contraseña..."
+                <span>{{ v$.confirmPassword.$errors[0]?.$message }}</span>
+                <input type="Password" id="confirmPassword" v-model="registerData.confirmPassword" placeholder="Confirme su contraseña..."
                     required>
 
-                <label for="id">RUT</label>
-                <input type="id" id="id" v-model="id" placeholder="12.345.678-9" required>
+                <label for="address">Dirección</label>
+                <span>{{ v$.address.$errors[0]?.$message }}</span>
+                <input type="text" id="address" v-model="registerData.address" placeholder="Avenida Siempreviva 123" required>
 
                 <label for="phone">Número Telefónico</label>
-                <input type="phone" id="phone" v-model="phone" placeholder="+569..." required>
+                <span>{{ v$.phone.$errors[0]?.$message }}</span>
+                <input type="text" id="phone" v-model="registerData.phone" placeholder="+569..." required>
             </div>
             <button type="submit">Registrar cuenta</button>
         </form>
     </div>
 </template>
 
-<script>
-export default {
-    data() {
-        return {
-            name: "",
-            email: "",
-            password: "",
-            confirmPassword: "",
-            id: "",
-            phone: ""
-        }
-    },
-    methods: {
-        register() {
-            this.$root.isAuthenticated = true;
-            localStorage.setItem('isLoggedIn', true);
-            localStorage.setItem('name', this.name);
-            localStorage.setItem('email', this.email);
-            localStorage.setItem('password', this.password);
-            localStorage.setItem('confirmPassword', this.confirmPassword);
-            localStorage.setItem('id', this.id);
-            localStorage.setItem('phone', this.phone);
-            this.$router.push('/');
-        }
-    }
+<script setup>
+import useVuelidate from '@vuelidate/core';
+import { maxLength, minLength, required, helpers, sameAs } from '@vuelidate/validators';
+import { ref, computed } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+const validatePhone = (value) => {
+    const phoneRegex = /^\+569\d{8}$/;
+    return phoneRegex.test(value);
 }
+
+const registerData = ref({
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+    address: '',
+    phone: '',
+});
+
+const rules = {
+    name: { required: helpers.withMessage("Requerido", required), minLength: helpers.withMessage("Mínimo de 2 caracteres.", minLength(2)), maxLength: helpers.withMessage("Máximo de 20 caracteres.", maxLength(20))},
+
+    email: { required: helpers.withMessage("Requerido", required), minLength: helpers.withMessage("Mínimo de 10 caracteres.", minLength(10)) , maxLength: helpers.withMessage("Máximo de 50 caracteres.", maxLength(50))},
+
+    password: { required: helpers.withMessage("Requerido", required), minLength: helpers.withMessage("Mínimo de 6 caracteres", minLength(6)) , maxLength: helpers.withMessage("Máximo de 30 caracteres.", maxLength(30))},
+
+    confirmPassword: { required: helpers.withMessage("Requerido", required), minLength: helpers.withMessage("Mínimo de 6 caracteres", minLength(6)) , maxLength: helpers.withMessage("Máximo de 30 caracteres.", maxLength(30)), sameAs: helpers.withMessage("Las contraseñas no coinciden.", sameAs(computed(()=> registerData.value.password)))},
+
+    address: { required: helpers.withMessage("Requerido", required), minLength: helpers.withMessage("Mínimo de 10 caracteres.", minLength(10)) , maxLength: helpers.withMessage("Máximo de 50 caracteres.", maxLength(50))},
+
+    phone: { required: helpers.withMessage("Requerido", required), minLength: helpers.withMessage("Mínimo de 8 caracteres.", minLength(8)) , maxLength: helpers.withMessage("Máximo de 12 caracteres.", maxLength(12)), format: helpers.withMessage("Formato incorrecto.", validatePhone)},
+};
+
+
+const v$ = useVuelidate(rules, registerData);
+
+const register = async () => {
+    const result = await v$.value.$validate();
+    if (result) {
+        localStorage.setItem('isLoggedIn', true);
+        localStorage.setItem('name', registerData.value.name);
+        localStorage.setItem('email', registerData.value.email);
+        router.push('/');
+    }
+};
 </script>
 
 <style scoped>
@@ -119,6 +147,14 @@ input::placeholder {
     font-weight: 500;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #528BE6 inset !important;
+    color: white !important;
+}
+
 button {
     margin-left: 450px;
     margin-top: 70px;
@@ -129,5 +165,4 @@ button {
     color: white;
     border: none;
 }
-
 </style>
