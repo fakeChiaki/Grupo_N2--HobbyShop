@@ -1,36 +1,43 @@
 <template>
-    <div class="register">
-        <h2>Register</h2>
-        <form @submit.prevent="register">
-            <div class="form-group">
-                <label for="name">Nombre de Usuario</label>
-                <span>{{ v$.name.$errors[0]?.$message }}</span>
-                <input type="text" id="name" v-model="registerData.name" placeholder="Inserte Usuario..." required>
+    <div class="register__container">
+        <div class="register">
+            <h2>Register</h2>
+            <form @submit.prevent="register">
+                <div class="form-group">
+                    <label for="name">Nombre de Usuario</label>
+                    <span>{{ v$.name.$errors[0]?.$message }}</span>
+                    <input type="text" id="name" v-model="registerData.name" placeholder="Inserte Usuario..." required>
 
-                <label for="email">Email</label>
-                <span>{{ v$.email.$errors[0]?.$message }}</span>
-                <input type="email" id="email" v-model="registerData.email" placeholder="ejemplo@gmail.com" required>
+                    <label for="email">Email</label>
+                    <span>{{ v$.email.$errors[0]?.$message }}</span>
+                    <input type="email" id="email" v-model="registerData.email" placeholder="ejemplo@gmail.com"
+                        required>
 
-                <label for="password">Contraseña</label>
-                <span>{{ v$.password.$errors[0]?.$message }}</span>
-                <input type="password" id="password" v-model="registerData.password" placeholder="Ingrese su contraseña..." required>
-            </div>
-            <div class="form-group-2">
-                <label for="confirmPassword">Confirmar Contraseña</label>
-                <span>{{ v$.confirmPassword.$errors[0]?.$message }}</span>
-                <input type="Password" id="confirmPassword" v-model="registerData.confirmPassword" placeholder="Confirme su contraseña..."
-                    required>
+                    <label for="password">Contraseña</label>
+                    <span>{{ v$.password.$errors[0]?.$message }}</span>
+                    <input type="password" id="password" v-model="registerData.password"
+                        placeholder="Ingrese su contraseña..." required>
+                </div>
+                <div class="form-group-2">
+                    <label for="confirmPassword">Confirmar Contraseña</label>
+                    <span>{{ v$.confirmPassword.$errors[0]?.$message }}</span>
+                    <input type="Password" id="confirmPassword" v-model="registerData.confirmPassword"
+                        placeholder="Confirme su contraseña..." required>
 
-                <label for="address">Dirección</label>
-                <span>{{ v$.address.$errors[0]?.$message }}</span>
-                <input type="text" id="address" v-model="registerData.address" placeholder="Avenida Siempreviva 123" required>
+                    <label for="address">Dirección</label>
+                    <span>{{ v$.address.$errors[0]?.$message }}</span>
+                    <input type="text" id="address" v-model="registerData.address" placeholder="Avenida Siempreviva 123"
+                        required>
 
-                <label for="phone">Número Telefónico</label>
-                <span>{{ v$.phone.$errors[0]?.$message }}</span>
-                <input type="text" id="phone" v-model="registerData.phone" placeholder="+569..." required>
-            </div>
-            <button type="submit">Registrar cuenta</button>
-        </form>
+                    <label for="phone">Número Telefónico</label>
+                    <span>{{ v$.phone.$errors[0]?.$message }}</span>
+                    <input type="text" id="phone" v-model="registerData.phone" placeholder="+569..." required>
+                </div>
+                <div class="button__container">
+                    <button type="submit">Registrar cuenta</button>
+                </div>
+            </form>
+        </div>
     </div>
 </template>
 
@@ -57,17 +64,17 @@ const registerData = ref({
 });
 
 const rules = {
-    name: { required: helpers.withMessage("Requerido", required), minLength: helpers.withMessage("Mínimo de 2 caracteres.", minLength(2)), maxLength: helpers.withMessage("Máximo de 20 caracteres.", maxLength(20))},
+    name: { required: helpers.withMessage("Requerido", required), minLength: helpers.withMessage("Mínimo de 2 caracteres.", minLength(2)), maxLength: helpers.withMessage("Máximo de 20 caracteres.", maxLength(20)) },
 
-    email: { required: helpers.withMessage("Requerido", required), minLength: helpers.withMessage("Mínimo de 10 caracteres.", minLength(10)) , maxLength: helpers.withMessage("Máximo de 50 caracteres.", maxLength(50))},
+    email: { required: helpers.withMessage("Requerido", required), minLength: helpers.withMessage("Mínimo de 10 caracteres.", minLength(10)), maxLength: helpers.withMessage("Máximo de 50 caracteres.", maxLength(50)) },
 
-    password: { required: helpers.withMessage("Requerido", required), minLength: helpers.withMessage("Mínimo de 6 caracteres", minLength(6)) , maxLength: helpers.withMessage("Máximo de 30 caracteres.", maxLength(30))},
+    password: { required: helpers.withMessage("Requerido", required), minLength: helpers.withMessage("Mínimo de 6 caracteres", minLength(6)), maxLength: helpers.withMessage("Máximo de 30 caracteres.", maxLength(30)) },
 
-    confirmPassword: { required: helpers.withMessage("Requerido", required), minLength: helpers.withMessage("Mínimo de 6 caracteres", minLength(6)) , maxLength: helpers.withMessage("Máximo de 30 caracteres.", maxLength(30)), sameAs: helpers.withMessage("Las contraseñas no coinciden.", sameAs(computed(()=> registerData.value.password)))},
+    confirmPassword: { required: helpers.withMessage("Requerido", required), minLength: helpers.withMessage("Mínimo de 6 caracteres", minLength(6)), maxLength: helpers.withMessage("Máximo de 30 caracteres.", maxLength(30)), sameAs: helpers.withMessage("Las contraseñas no coinciden.", sameAs(computed(() => registerData.value.password))) },
 
-    address: { required: helpers.withMessage("Requerido", required), minLength: helpers.withMessage("Mínimo de 10 caracteres.", minLength(10)) , maxLength: helpers.withMessage("Máximo de 50 caracteres.", maxLength(50))},
+    address: { required: helpers.withMessage("Requerido", required), minLength: helpers.withMessage("Mínimo de 10 caracteres.", minLength(10)), maxLength: helpers.withMessage("Máximo de 50 caracteres.", maxLength(50)) },
 
-    phone: { required: helpers.withMessage("Requerido", required), minLength: helpers.withMessage("Mínimo de 8 caracteres.", minLength(8)) , maxLength: helpers.withMessage("Máximo de 12 caracteres.", maxLength(12)), format: helpers.withMessage("Formato incorrecto.", validatePhone)},
+    phone: { required: helpers.withMessage("Requerido", required), minLength: helpers.withMessage("Mínimo de 8 caracteres.", minLength(8)), maxLength: helpers.withMessage("Máximo de 12 caracteres.", maxLength(12)), format: helpers.withMessage("Formato incorrecto.", validatePhone) },
 };
 
 
@@ -85,12 +92,18 @@ const register = async () => {
 </script>
 
 <style scoped>
+.register__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
 .register {
     color: white;
     background-color: #103973;
-    margin: 0px 13rem;
     padding: 4rem 0 2rem 0;
-    margin-top: 65px;
     border-radius: 15px;
     font-family: Arial, sans-serif;
 }
@@ -138,7 +151,6 @@ input {
     padding: 10px;
     color: white;
     text-align: left;
-    width: 70%;
     border: none;
 }
 
@@ -156,13 +168,17 @@ input:-webkit-autofill:active {
 }
 
 button {
-    margin-left: 450px;
-    margin-top: 70px;
     border-radius: 15px;
     padding: 20px 30px;
     font-size: medium;
     background-color: #528BE6;
     color: white;
     border: none;
+}
+
+.button__container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
 </style>

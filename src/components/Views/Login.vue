@@ -1,23 +1,25 @@
 <template>
-    <div class="login">
-        <h2>Login</h2>
-        <form @submit.prevent="login">
-            <div class="form-group">
-                <label class="email" for="email">Correo electrónico</label>
-                <span>{{ v$.email.$errors[0]?.$message }}</span>
-                <input type="email" id="email" v-model="loginData.email" placeholder="ejemplo@gmail.com" required>
+    <div class="login__container">
+        <div class="login">
+            <h2>Login</h2>
+            <form @submit.prevent="login">
+                <div class="form-group">
+                    <label class="email" for="email">Correo electrónico</label>
+                    <span>{{ v$.email.$errors[0]?.$message }}</span>
+                    <input type="email" id="email" v-model="loginData.email" placeholder="ejemplo@gmail.com" required>
 
-                <label class="password" for="password">Contraseña</label>
-                <span>{{ v$.password.$errors[0]?.$message }}</span>
-                <input type="password" id="password" v-model="loginData.password" placeholder="Introducir contraseña..." required>
+                    <label class="password" for="password">Contraseña</label>
+                    <span>{{ v$.password.$errors[0]?.$message }}</span>
+                    <input type="password" id="password" v-model="loginData.password"
+                        placeholder="Introducir contraseña..." required>
 
-            </div>
-            <div class="bottom">
-                <button type="submit">Login</button>
-                <span>No tienes una cuenta? <router-link to="/Register">Registrate aquí!</router-link></span>
-            </div>
-        </form>
-
+                </div>
+                <div class="bottom">
+                    <button type="submit">Login</button>
+                    <span>No tienes una cuenta? <router-link to="/Register">Registrate aquí!</router-link></span>
+                </div>
+            </form>
+        </div>
     </div>
 </template>
 
@@ -31,8 +33,8 @@ import { useRouter } from 'vue-router';
 const router = useRouter();
 
 const rules = {
-    email: { required: helpers.withMessage("Requerido", required), minLength: helpers.withMessage("Mínimo de 10 caracteres.", minLength(10)) , maxLength: helpers.withMessage("Máximo de 10 catacteres.", maxLength(50))},
-    password: { required: helpers.withMessage("Requerido", required), minLength: helpers.withMessage("Mínimo de 6 caracteres", minLength(6)) , maxLength: helpers.withMessage("Máximo de 30 caracteres.", maxLength(30))  },
+    email: { required: helpers.withMessage("Requerido", required), minLength: helpers.withMessage("Mínimo de 10 caracteres.", minLength(10)), maxLength: helpers.withMessage("Máximo de 10 catacteres.", maxLength(50)) },
+    password: { required: helpers.withMessage("Requerido", required), minLength: helpers.withMessage("Mínimo de 6 caracteres", minLength(6)), maxLength: helpers.withMessage("Máximo de 30 caracteres.", maxLength(30)) },
 };
 
 const loginData = ref({
@@ -54,12 +56,20 @@ const login = async () => {
 </script>
 
 <style scoped>
+
+.login__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
 .login {
     color: white;
     background-color: #103973;
     margin: 0px 33rem;
     padding: 7rem 0 7rem 0;
-    margin-top: 100px;
     border-radius: 15px;
     font-family: Arial, sans-serif;
 }
