@@ -10,6 +10,8 @@ import Login from './components/Views/Login.vue';
 import Register from './components/Views/Register.vue';
 import Principal from './components/Views/Principal.vue';
 import VistaProducto from './components/Views/VistaProducto.vue';
+import Publicacion from './components/Views/Publicacion.vue';
+import Reseña from './components/Views/Reseña.vue'
 
 //Definir Rutas
 const routes = [
@@ -19,7 +21,10 @@ const routes = [
 { path: "/Login", component: Login },
 { path: "/Register", component: Register},
 { path: "/Principal", component:Principal},
-{ path: "/VistaProducto/:id", component: VistaProducto}
+{ path: "/VistaProducto/:id", component: VistaProducto},
+{ path: "/Publicacion", component: Publicacion},
+{ path: "/Reseña", component: Reseña}
+
 
 ]
 

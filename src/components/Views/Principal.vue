@@ -56,6 +56,7 @@ import Card from '../Card.vue';
   margin-bottom: 20px;
   margin-top: 20px;
   margin-right: 20px;
+  margin-left: 20px;
 
 }
 .card:nth-child(3n) {

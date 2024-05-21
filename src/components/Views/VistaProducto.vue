@@ -127,7 +127,6 @@ transition: all .2s ease-in-out;
   align-items: center;
   border-radius: 10px;
   justify-content: center;
-  
   position: absolute;
   width: 426px;
   height: 52px;
@@ -139,7 +138,7 @@ transition: all .2s ease-in-out;
   line-height: 43.568px;
   text-align: center;
   white-space: nowrap;
-  z-index: 11;
+  
 }
 .vendedor {
   background-color: #00133b;
