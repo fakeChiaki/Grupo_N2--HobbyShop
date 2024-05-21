@@ -76,8 +76,6 @@
       };
   
       const comprar = async () => {
-        // Aquí puedes implementar la lógica de compra si es necesario
-        // Por ejemplo, enviar los productos al servidor para procesar el pago
         alert('Compra realizada');
         carrito.value = [];
       };

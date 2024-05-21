@@ -11,16 +11,16 @@
       />
     </div>
   </template>
-  <script setup>
-  import Header from "../Header.vue";
-  </script>
-  <script>
 
-  import axios from 'axios';
+  <script>
+import Header from "../Header.vue";
+import axios from 'axios';
 import Card from '../Card.vue';
+
   export default {
     components: {
-      Card
+      Card,
+      Header
     },
     data() {
       return {

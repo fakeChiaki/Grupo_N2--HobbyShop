@@ -86,7 +86,7 @@ const register = async () => {
         localStorage.setItem('isLoggedIn', true);
         localStorage.setItem('name', registerData.value.name);
         localStorage.setItem('email', registerData.value.email);
-        router.push('/');
+        router.push('/Principal');
     }
 };
 </script>

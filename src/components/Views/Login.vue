@@ -50,7 +50,7 @@ const login = async () => {
         localStorage.setItem('isLoggedIn', true);
         localStorage.setItem('email', loginData.value.email);
         localStorage.setItem('password', loginData.value.password);
-        router.push('/');
+        router.push('/Principal');
     }
 };
 </script>
