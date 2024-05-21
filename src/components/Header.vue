@@ -107,7 +107,7 @@ export default {
       }
     },
     navigateToShoppingCart() {
-         this.$router.push('/ShoppingCart');
+         this.$router.push('/Carritocompras');
     }
   },
 }
