@@ -19,8 +19,6 @@ import Header from "../Header.vue";
              
            </div>
            <div class="form-group-2">
-              
-
              
                <label for="descripcion">Descripcion</label>
                <input type="text" id="descripcion" v-model="descripcion" placeholder="Ingrese una descripcion del Producto" required>   
@@ -37,6 +35,7 @@ import Header from "../Header.vue";
    margin: 0px 13rem;
    padding: 4rem 0 2rem 0;
    margin-top: 65px;
+  
    border-radius: 15px;
    font-family: Arial, sans-serif;
 }
@@ -57,7 +56,7 @@ h2 {
    align-items: left;
    justify-content: center;
    flex-direction: column;
-   margin: 10px 35rem 0 10rem;
+   margin: 20px 35rem 0 10rem;
 }
 
 .form-group-2 {
@@ -65,7 +64,7 @@ h2 {
    align-items: left;
    justify-content: center;
    flex-direction: column;
-   margin: -16.6rem 4rem 0 40rem;
+   margin: -11.6rem 1rem 0 40rem;
 }
 
 label {
@@ -100,7 +99,7 @@ input::placeholder {
 }
 .Submit {
     margin-left: 450px;
-   margin-top: 70px;
+   margin-top: 180px;
    border-radius: 15px;
    padding: 20px 30px;
    font-size: medium;

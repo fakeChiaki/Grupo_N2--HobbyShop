@@ -11,7 +11,7 @@ const nombreproducto = ref('');
 const precio = ref('');
 const imageUrl = ref('');
 const stock = ref('');
-const Descripcion = ref('');
+const descripcion = ref('');
 
 const fetchProducto = async () => {
   try {
@@ -21,7 +21,7 @@ const fetchProducto = async () => {
     precio.value = producto.precio;
     imageUrl.value = producto.imageUrl;
     stock.value = producto.stock;
-    Descripcion.value = producto.Descripcion;
+    descripcion.value = producto.descripcion;
   } catch (error) {
     console.error('Error al cargar el producto:', error);
   }
@@ -39,7 +39,7 @@ onMounted(fetchProducto);
       <span class="figurina-makima-taito">{{nombreproducto}}</span>
       <span class="precio">Precio: {{ precio }}</span>
       <span class="vendedor">Vendedor: Andrés</span>
-      <span class="stock">Stock: {{ stock }}</span>
+      <span class="stock">Stock: {{ Stock }}</span>
     </div>
     <span class="descripcion"
       >Descripcion:<br />{{ Descripcion }}</span>
@@ -127,6 +127,7 @@ transition: all .2s ease-in-out;
   align-items: center;
   border-radius: 10px;
   justify-content: center;
+  
   position: absolute;
   width: 426px;
   height: 52px;
@@ -138,7 +139,7 @@ transition: all .2s ease-in-out;
   line-height: 43.568px;
   text-align: center;
   white-space: nowrap;
-  
+  z-index: 11;
 }
 .vendedor {
   background-color: #00133b;

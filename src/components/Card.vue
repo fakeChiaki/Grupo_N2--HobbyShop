@@ -8,14 +8,14 @@ export default {
   },
   methods: {
     irADetalle() {
-      this.$router.push({ path: `/VistaProducto/${this.id}` });
+      this.$router.push({ path: `/Vistaproducto/${this.id}` });
     }
   }
 }
 </script>
 <template>
 
-  <button class="component"@click="irADetalle">
+  <button class="component">
     <div class="overlap">
       <img :src="imageUrl" alt="imagen" class="imagen">
     </div>

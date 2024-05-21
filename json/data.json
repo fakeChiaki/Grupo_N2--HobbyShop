@@ -134,5 +134,17 @@
           "stock": "14",
           "imageUrl": "https://example.com/darthvader.jpg"
         }
-      ]
+      ],
+      "carrito":[{
+        
+          "id": "15",
+          "nombreproducto": "Figura de acción Darth Vader",
+          "precio": "19.99",
+          "idvendedor": "15",
+          "Descripcion": "Figura de acción de Darth Vader con sable de luz",
+          "cantidad": "1",
+          "imageUrl": "https://example.com/darthvader.jpg"
+        
+      }
+    ]
 }
