@@ -5,17 +5,12 @@ import Header from "../Header.vue";
 
 <template>
         <Header />
-
     <div class="Reseña">
        <h2>Reseña el producto</h2>
        <form @submit.prevent="crear">
            <div class="form-group">
                <label for="name">Nombre del Producto</label>
                <input type="text" id="name" v-model="name" placeholder="Inserte Producto." required>
-
-               <label for="precio">Precio</label>
-               <input type="number" id="precio" v-model="precio" placeholder="$$$" required>
-
              
            </div>
            <div class="form-group-2">

@@ -1,17 +1,18 @@
 <script setup>
 import { onMounted, ref } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import axios from 'axios';
 import Header from '../Header.vue';
 
 const route = useRoute();
+const router = useRouter();
 const id = route.params.id;
 
 const nombreproducto = ref('');
 const precio = ref('');
 const imageUrl = ref('');
 const stock = ref('');
-const descripcion = ref('');
+const Descripcion = ref('');
 
 const fetchProducto = async () => {
   try {
@@ -21,14 +22,43 @@ const fetchProducto = async () => {
     precio.value = producto.precio;
     imageUrl.value = producto.imageUrl;
     stock.value = producto.stock;
-    descripcion.value = producto.descripcion;
+    Descripcion.value = producto.Descripcion;
   } catch (error) {
     console.error('Error al cargar el producto:', error);
+  }
+};
+const comprarProducto = async () => {
+  try {
+    const productoCarrito = {
+      nombreproducto: nombreproducto.value,
+      precio: precio.value,
+      imageUrl: imageUrl.value,
+      stock: stock.value,
+      descripcion: Descripcion.value
+    };
+
+    const response = await axios.post('http://localhost:3000/carrito', productoCarrito);
+    console.log('Producto agregado al carrito:', response.data);
+    alert('Producto agregado al carrito con éxito');
+  } catch (error) {
+    console.error('Error al agregar el producto al carrito:', error);
+  }
+};
+
+
+const eliminarProducto = async () => {
+  try {
+    await axios.delete(`http://localhost:3000/productos/${id}`);
+    alert('Producto eliminado con éxito');
+    router.push('/');  
+  } catch (error) {
+    console.error('Error al eliminar el producto:', error);
   }
 };
 
 onMounted(fetchProducto);
 </script>
+
 <template>
   <Header />
   <div class="fondo">
@@ -36,18 +66,33 @@ onMounted(fetchProducto);
       <img :src="imageUrl" alt="imagen" class="imagen" />
     </div>
     <div class="columna">
-      <span class="figurina-makima-taito">{{nombreproducto}}</span>
+      <span class="nombre">{{ nombreproducto }}</span>
       <span class="precio">Precio: {{ precio }}</span>
       <span class="vendedor">Vendedor: Andrés</span>
-      <span class="stock">Stock: {{ Stock }}</span>
+      <span class="stock">Stock: {{ stock }}</span>
     </div>
-    <span class="descripcion"
-      >Descripcion:<br />{{ Descripcion }}</span>
-    <button class="compra">Comprar</button>
+    <span class="descripcion">Descripcion:<br />{{ Descripcion }}</span>
+    <button class="compra" @click="comprarProducto">Comprar</button>
+    <button class="eliminar" @click="eliminarProducto">Eliminar</button>
   </div>
 </template>
 
 <style>
+.eliminar {
+  background-color: red;
+  color: white;
+  border: none;
+  position: relative;
+  padding: 10px;
+  top: 46%;
+  left: -10%;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all .2s ease-in-out; 
+}
+.eliminar:hover {
+  transform: scale(1.1);  
+}
 .compra:hover{
   transform: scale(1.1);  
 }
@@ -100,7 +145,7 @@ transition: all .2s ease-in-out;
   left: 57.34%;
   
 }
-.figurina-makima-taito {
+.nombre {
   background-color: #00133b;
   border-radius: 10px;
   display: flex;

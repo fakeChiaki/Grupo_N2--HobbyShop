@@ -38,8 +38,12 @@
 
 
     <div class="searchbar">
-      <input type="search" placeholder="Buscar...">
-      
+      <input
+      type="text"
+      v-model="query"
+      @input="onSearch"
+      placeholder="Buscar productos..."
+    />
       <button class="magglass">
         <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
         width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -75,12 +79,14 @@
 
 <script>
 export default {
+  name: 'SearchBar',
   data() {
     return {
       email: '',
       password: '',
       isAuthenticated: false,
-      showDropdown: false
+      showDropdown: false,
+      query: ''
     }
   },
   mounted() {
@@ -108,6 +114,8 @@ export default {
     },
     navigateToShoppingCart() {
          this.$router.push('/Carritocompras');
+    }, onSearch() {
+      this.$emit('search', this.query);
     }
   },
 }

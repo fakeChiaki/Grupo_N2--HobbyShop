@@ -1,13 +1,9 @@
-<script setup>
-import Header from "../Header.vue";
-</script>
-
 <template>
   <Header />
 
   <div class="publicacion">
     <h2>Publicar Producto</h2>
-    <form @submit.prevent="crear">
+    <form @submit.prevent="crearProducto">
       <div class="form-group">
         <label for="name">Nombre del Producto</label>
         <input
@@ -26,6 +22,7 @@ import Header from "../Header.vue";
           placeholder="$$$"
           required
         />
+        
         <label for="stock">Stock</label>
         <input
           type="number"
@@ -54,11 +51,56 @@ import Header from "../Header.vue";
           required
         />
       </div>
-      <button class="Submit" type="submit">Registrar cuenta</button>
+      <button class="Submit" type="submit">Registrar Producto</button>
     </form>
   </div>
 </template>
 
+<script>
+import axios from 'axios';
+import Header from '../Header.vue';
+
+export default {
+  name: 'PublicarProducto',
+  components: {
+    Header
+  },
+  data() {
+    return {
+      name: '',
+      precio: '',
+      stock: '',
+      descripcion: '',
+      image: ''
+    };
+  },
+  methods: {
+    async crearProducto() {
+      try {
+        const nuevoProducto = {
+          nombreproducto: this.name,
+          precio: this.precio,
+          stock: this.stock,
+          descripcion: this.descripcion,
+          imageUrl: this.image
+        };
+
+        const response = await axios.post('http://localhost:3000/productos', nuevoProducto);
+        console.log('Producto creado:', response.data);
+        alert('Producto creado con éxito');
+        
+        this.name = '';
+        this.precio = '';
+        this.stock = '';
+        this.descripcion = '';
+        this.image = '';
+      } catch (error) {
+        console.error('Error al crear el producto:', error);
+      }
+    }
+  }
+};
+</script>
 <style scoped>
 .publicacion {
   color: white;
