@@ -82,6 +82,7 @@ transition: all .2s ease-in-out;
   line-height: normal;
   position: relative;
   top: 20px;
+  max-width: 150px;
 }
 
 </style>
