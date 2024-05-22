@@ -9,7 +9,7 @@ import Principal from './../components/Views/Principal.vue'
 import Resena from './../components/Views/Reseña.vue'
 import Publicacion from './../components/Views/Publicacion.vue'
 import Carritocompras from './../components/Views/Carritocompras.vue'
-import EditProfile from '@/components/Views/EditProfile.vue';
+import EditProfile from './../components/Views/EditProfile.vue';
 
 //Definir Rutas
 const routes = [

@@ -16,26 +16,37 @@
             </div>
             <div class="form__container">
                 <h2>Editar Perfil</h2>
-                <form>
+                <form @submit.prevent="modify">
                     <div class="form__group">
-                        <label>Nombre de Usuario</label>
-                        <input type="text" placeholder="Inserte nuevo Usuario...">
+                        <label for="name">Nombre de Usuario</label>
+                        <span>{{ v$.name.$errors[0]?.$message }}</span>
+                        <input type="text" id="name" v-model="modifyData.name" placeholder="Inserte nuevo Usuario..."
+                            required>
 
-                        <label>Correo de Contacto</label>
-                        <input type="email" placeholder="Nuevo correo de contacto...">
+                        <label for="email">Correo de Contacto</label>
+                        <span>{{ v$.email.$errors[0]?.$message }}</span>
+                        <input type="email" id="email" v-model="modifyData.email"
+                            placeholder="Nuevo correo de contacto..." required>
 
-                        <label>Contraseña</label>
-                        <input type="password" placeholder="Ingrese nueva contraseña...">
+                        <label for="password">Contraseña</label>
+                        <span>{{ v$.password.$errors[0]?.$message }}</span>
+                        <input type="password" id="password" v-model="modifyData.password"
+                            placeholder="Ingrese nueva contraseña..." required>
                     </div>
                     <div class="form__group">
-                        <label>Confirmar Contraseña</label>
-                        <input type="password" placeholder="Confirme nueva contraseña...">
+                        <label for="confirmPassword">Confirmar Contraseña</label>
+                        <span>{{ v$.confirmPassword.$errors[0]?.$message }}</span>
+                        <input type="password" id="confirmPassword" v-model="modifyData.confirmPassword"
+                            placeholder="Confirme nueva contraseña..." required>
 
-                        <label>Dirección</label>
-                        <input type="text" placeholder="Nueva dirección...">
+                        <label for="address">Dirección</label>
+                        <span>{{ v$.address.$errors[0]?.$message }}</span>
+                        <input type="text" id="address" v-model="modifyData.address" placeholder="Nueva dirección..." required>
 
-                        <label>Número Telefónico</label>
-                        <input type="text" placeholder="Nuevo número telefónico...">
+                        <label for="phone">Número Telefónico</label>
+                        <span>{{ v$.phone.$errors[0]?.$message }}</span>
+                        <input type="text" id="phone" v-model="modifyData.phone"
+                            placeholder="Nuevo número telefónico..." required>
                     </div>
                 </form>
                 <div class="button__container">
@@ -50,8 +61,53 @@
 
 <script setup>
 import Header from "../Header.vue";
+import useVuelidate from '@vuelidate/core';
+import { required, maxLength, minLength, helpers, sameAs } from '@vuelidate/validators';
+import { ref, computed } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+const validatePhone = (value) => {
+    const phoneRegex = /^\+569\d{8}$/;
+    return phoneRegex.test(value);
+}
+
+const modifyData = ref({
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+    address: '',
+    phone: '',
+});
+
+const rules = {
+    name: { required: helpers.withMessage("Requerido", required), minLength: helpers.withMessage("Mínimo de 2 caracteres.", minLength(2)), maxLength: helpers.withMessage("Máximo de 20 caracteres.", maxLength(20)) },
+
+    email: { required: helpers.withMessage("Requerido", required), minLength: helpers.withMessage("Mínimo de 10 caracteres.", minLength(10)), maxLength: helpers.withMessage("Máximo de 50 caracteres.", maxLength(50)) },
+
+    password: { required: helpers.withMessage("Requerido", required), minLength: helpers.withMessage("Mínimo de 6 caracteres", minLength(6)), maxLength: helpers.withMessage("Máximo de 30 caracteres.", maxLength(30)) },
+
+    confirmPassword: { required: helpers.withMessage("Requerido", required), minLength: helpers.withMessage("Mínimo de 6 caracteres", minLength(6)), maxLength: helpers.withMessage("Máximo de 30 caracteres.", maxLength(30)), sameAs: helpers.withMessage("Las contraseñas no coinciden.", sameAs(computed(() => modifyData.value.password))) },
+
+    address: { required: helpers.withMessage("Requerido", required), minLength: helpers.withMessage("Mínimo de 10 caracteres.", minLength(10)), maxLength: helpers.withMessage("Máximo de 50 caracteres.", maxLength(50)) },
+
+    phone: { required: helpers.withMessage("Requerido", required), minLength: helpers.withMessage("Mínimo de 8 caracteres.", minLength(8)), maxLength: helpers.withMessage("Máximo de 12 caracteres.", maxLength(12)), format: helpers.withMessage("Formato incorrecto.", validatePhone) },
+};
 
 
+const v$ = useVuelidate(rules, modifyData);
+
+const modify = async () => {
+    const result = await v$.value.$validate();
+    if (result) {
+        localStorage.setItem('isLoggedIn', true);
+        localStorage.setItem('name', registerData.value.name);
+        localStorage.setItem('email', registerData.value.email);
+        router.push('/Profile');
+    }
+};
 </script>
 
 <style scoped>
@@ -191,5 +247,4 @@ input::placeholder {
     width: 8rem;
     height: 2rem;
 }
-
 </style>
