@@ -10,7 +10,7 @@ import Resena from '../components/Views/Reseñacreacion.vue'
 import Publicacion from './../components/Views/Publicacion.vue'
 import Carritocompras from './../components/Views/Carritocompras.vue'
 import EditProfile from './../components/Views/EditProfile.vue';
-
+import Reseña from './../components/Views/Reseña.vue'
 //Definir Rutas
 const routes = [
 { name: "profile" ,path: "/Profile", component: Profile, meta: { isPrivate: true } },
@@ -22,6 +22,7 @@ const routes = [
 { name: "publicacion" ,path: "/Publicacion", component: Publicacion, meta: { isPrivate: true } },
 { name: "carritocompras" ,path: "/Carritocompras", component: Carritocompras, meta: { isPrivate: true } },
 { name: "editprofile" ,path: "/EditProfile", component: EditProfile, meta: { isPrivate: true } },
+{ name: "Reseña" ,path: "/Resena", component: Reseña, meta: { isPrivate: false } }
 ]
 
 //Crear Router

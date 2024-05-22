@@ -5,7 +5,7 @@
         <div class="content__container">
             <aside>
                 <RouterLink to="/EditProfile">Editar Perfil</RouterLink>
-                <RouterLink>Reseñas</RouterLink>
+                <RouterLink to="/Resena">Reseñas</RouterLink>
                 <RouterLink>Historial</RouterLink>
                 <RouterLink to="/Publicacion">Vender Producto</RouterLink>
             </aside>

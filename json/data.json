@@ -155,8 +155,17 @@
       "descripcion": "Figura de acción de Spider-Man con articulaciones"
     }
   ],
-  "reseña":[{
-    
-
-  }]
+  "reseña": [
+    {},
+    {
+      "id": null,
+      "nombre": "dds",
+      "descripcion": "dds"
+    },
+    {
+      "id": 1,
+      "nombre": "wwe",
+      "descripcion": "ww"
+    }
+  ]
 }
