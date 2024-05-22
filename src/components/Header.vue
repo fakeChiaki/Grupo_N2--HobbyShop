@@ -237,4 +237,8 @@ button {
 .logo {
   background: none;
 }
+
+.magglass {
+  padding: 0 22px;
+}
 </style>
