@@ -44,6 +44,9 @@ import Card from '../Card.vue';
   }
   </script>
   <style >
+  a{
+    text-decoration: none;
+  }
   .row {
     
     display: flex;
