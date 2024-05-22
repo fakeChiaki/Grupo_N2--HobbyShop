@@ -78,12 +78,12 @@ h1 {
 .review-card h2 {
   margin: 0 0 10px 0;
   font-size: 1.5em;
-  color: #333;
+  color: #ffffff;
 }
 
 .review-card p {
   margin: 0;
   font-size: 1em;
-  color: #555;
+  color: #ffffff;
 }
 </style>
