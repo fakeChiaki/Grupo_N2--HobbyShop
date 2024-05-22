@@ -1,6 +1,6 @@
 <template>
   <header>
-    <RouterLink to="/Principal"><button class="logo"><img src="../assets/img/logohobby.png"></button></RouterLink>
+    <RouterLink to="/"><button class="logo"><img src="../assets/img/logohobby.png"></button></RouterLink>
 
 
     <button class="drop" @click="showDropdown = !showDropdown" @blur="hideDropdown">

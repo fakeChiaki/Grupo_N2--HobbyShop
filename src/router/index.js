@@ -9,16 +9,19 @@ import Principal from './../components/Views/Principal.vue'
 import Resena from './../components/Views/Reseña.vue'
 import Publicacion from './../components/Views/Publicacion.vue'
 import Carritocompras from './../components/Views/Carritocompras.vue'
+import EditProfile from '@/components/Views/EditProfile.vue';
+
 //Definir Rutas
 const routes = [
 { name: "profile" ,path: "/Profile", component: Profile, meta: { isPrivate: true } },
 { name: "login" ,path: "/Login", component: Login, meta: { isPrivate: false } },
 { name: "register" ,path: "/Register", component: Register, meta: { isPrivate: false } },
 { name: "vistaproducto" ,path: "/Vistaproducto/:id", component: VistaProducto, meta: { isPrivate: false } },
-{ name: "principal" ,path: "/Principal", component: Principal, meta: { isPrivate: false } },
+{ name: "principal" ,path: "/", component: Principal, meta: { isPrivate: false } },
 { name: "reseña" ,path: "/Resena", component: Resena, meta: { isPrivate: true } },
 { name: "publicacion" ,path: "/Publicacion", component: Publicacion, meta: { isPrivate: true } },
-{ name: "carritocompras" ,path: "/Carritocompras", component: Carritocompras, meta: { isPrivate: true } }
+{ name: "carritocompras" ,path: "/Carritocompras", component: Carritocompras, meta: { isPrivate: true } },
+{ name: "editprofile" ,path: "/EditProfile", component: EditProfile, meta: { isPrivate: true } },
 ]
 
 //Crear Router

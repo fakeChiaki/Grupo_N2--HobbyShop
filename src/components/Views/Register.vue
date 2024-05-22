@@ -86,7 +86,7 @@ const register = async () => {
         localStorage.setItem('isLoggedIn', true);
         localStorage.setItem('name', registerData.value.name);
         localStorage.setItem('email', registerData.value.email);
-        router.push('/Principal');
+        router.push('/');
     }
 };
 </script>
@@ -152,6 +152,7 @@ input {
     color: white;
     text-align: left;
     border: none;
+    width: 18rem;
 }
 
 input::placeholder {
@@ -174,6 +175,13 @@ button {
     background-color: #528BE6;
     color: white;
     border: none;
+    transition: all 0.5s ease;
+}
+
+button:hover {
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transform: scale(1.01);
 }
 
 .button__container {

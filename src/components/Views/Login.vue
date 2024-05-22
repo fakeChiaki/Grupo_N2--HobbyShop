@@ -50,7 +50,7 @@ const login = async () => {
         localStorage.setItem('isLoggedIn', true);
         localStorage.setItem('email', loginData.value.email);
         localStorage.setItem('password', loginData.value.password);
-        router.push('/Principal');
+        router.push('/');
     }
 };
 </script>
@@ -148,6 +148,13 @@ button {
     padding: 7px 20px;
     color: white;
     background-color: #528BE6;
+    transition: all 0.5s ease;
+}
+
+button:hover {
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transform: scale(1.03);
 }
 
 span a {

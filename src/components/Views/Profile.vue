@@ -4,10 +4,10 @@
         <h2>Perfil</h2>
         <div class="content__container">
             <aside>
-                <button>Editar Perfil</button>
-                <button>Reseñas</button>
-                <button>Historial</button>
-                <button>Vender Producto</button>
+                <RouterLink to="/EditProfile">Editar Perfil</RouterLink>
+                <RouterLink>Reseñas</RouterLink>
+                <RouterLink>Historial</RouterLink>
+                <RouterLink>Vender Producto</RouterLink>
             </aside>
 
             <div class="profile__container">
@@ -62,7 +62,6 @@
 
 <script setup>
 import Header from "../Header.vue";
-
 
 
 </script>
@@ -129,7 +128,7 @@ aside {
     gap: 8px;
 }
 
-aside button {
+aside a {
     padding: 2rem 3rem;
     border-radius: 10px;
     border: none;
@@ -137,5 +136,17 @@ aside button {
     font-size: 1.5rem;
     font-weight: 540;
     width: 60%;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    color: black;
+    transition: all 0.5s ease;
 }
+
+aside a:hover {
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transform: scale(1.01);
+}
+
 </style>
