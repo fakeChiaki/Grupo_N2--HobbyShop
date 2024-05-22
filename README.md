@@ -1,29 +1,37 @@
-# vue-project
+# Funcionalidades por integrante:
+Sebastián Ávila Fica:
 
-This template should help get you started developing with Vue 3 in Vite.
+Funciones Gestión de Usuario: Permiten la manipulación de los datos relacionados a los usuarios y a su interacción dentro de la aplicación. Estas funciones serán:
+- Registro
+- Login
+- Edición Perfil
+- Detalles Perfil
+- Historial Compra/Venta
+- Historial Reseñas
 
-## Recommended IDE Setup
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+Agustín Troncoso Rojas:
 
-## Customize configuration
+Funciones Gestión de Productos: Permiten la manipulación de los productos, considerando que un usuario puede publicar, vender y comprar productos. Estas funciones serán:
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+- Vista Producto
+- Compra Producto
+- Publicación Producto
+- Eliminación Producto
+- Creación Reseñas
 
-## Project Setup
-
-```sh
-npm install
+## Setup librerias
+Instalar librerias:
+```
+Validaciones hechos con Vuelidate: -npm install @vuelidate/core @vuelidate/validators
+Instalación Router: -npm install vue-router
+Instalación Axios: -npm install axios
 ```
 
-### Compile and Hot-Reload for Development
+## Setup JSON
+Se debe abrir una terminal integrada desde la carpeta json. Luego de esto, se debe correr el comando:
+```json-server --watch ./data.json``` 
 
-```sh
-npm run dev
-```
+## Correr programa
+Se debe abrir la terminal de preferencia, donde se debe ejecutar el comando: `npm run dev`
 
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
