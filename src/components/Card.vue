@@ -5,24 +5,19 @@ export default {
     nombreproducto: String,
     precio: Number,
     imageUrl: String
-  },
-  methods: {
-    irADetalle() {
-      this.$router.push({ path: `/Vistaproducto/${this.id}` });
-    }
   }
 }
 </script>
 <template>
-
-  <button class="component">
+<router-link :to="`/Vistaproducto/${id}`"><button class="component">
     <div class="overlap">
       <img :src="imageUrl" alt="imagen" class="imagen">
     </div>
       <h5 class="nombreproducto">{{ nombreproducto }}</h5>
       <p class="text-wrapper">{{ precio }}</p>
     
-    </button>
+    </button> </router-link>
+  
 </template>
 
 <style scoped>
@@ -56,10 +51,11 @@ transition: all .2s ease-in-out;
   flex-direction: column;
 }
 .imagen {
-  height: 120px;
+  border-radius: 10px;
+  height: 85px;
   position: absolute;
-  top: 10px;
-  width: 129px;
+  top: 5px;
+  width: 99px;
 }
  .text-wrapper {
   color: #ffffff;

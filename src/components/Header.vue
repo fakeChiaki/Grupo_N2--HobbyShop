@@ -141,7 +141,8 @@ header {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  width: 35rem;
+  width: 45rem;
+  height: 20px;
   padding-left: 10px;
 }
 
@@ -150,7 +151,7 @@ header {
   cursor: pointer;
   border-radius: 75%;
   transform: translateY(-50%);
-  margin-left: 295px;
+  margin-left: 385px;
   margin-top: 33px;
 }
 

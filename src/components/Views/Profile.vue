@@ -7,7 +7,7 @@
                 <RouterLink to="/EditProfile">Editar Perfil</RouterLink>
                 <RouterLink>Reseñas</RouterLink>
                 <RouterLink>Historial</RouterLink>
-                <RouterLink>Vender Producto</RouterLink>
+                <RouterLink to="/Publicacion">Vender Producto</RouterLink>
             </aside>
 
             <div class="profile__container">

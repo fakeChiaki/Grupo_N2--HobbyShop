@@ -74,19 +74,32 @@ onMounted(fetchProducto);
     <span class="descripcion">Descripcion:<br />{{ Descripcion }}</span>
     <button class="compra" @click="comprarProducto">Comprar</button>
     <button class="eliminar" @click="eliminarProducto">Eliminar</button>
+    <RouterLink to="/Resenacreacion">Reseñar</RouterLink>
   </div>
 </template>
 
-<style>
+<style scoped>
+a{
+  background-color: rgb(19, 172, 149);
+  color: white;
+  padding: 1rem 2rem;
+  top: 45%;
+  border-radius: 10px;
+  text-decoration: none;
+  left:15%;
+  position: relative;
+}
 .eliminar {
   background-color: red;
   color: white;
   border: none;
   position: relative;
-  padding: 10px;
-  top: 46%;
+  width: 200px;
+  height: 50px;
+  top: 45%;
   left: -10%;
   border-radius: 10px;
+  font-size: 20px;
   cursor: pointer;
   transition: all .2s ease-in-out; 
 }
@@ -104,7 +117,7 @@ onMounted(fetchProducto);
   position: relative;
   width: 200px;
   height: 50px;
-  top: 46%;
+  top: 45%;
   left: 80%;
   border: none;
 transition: all .2s ease-in-out; 
@@ -134,10 +147,11 @@ transition: all .2s ease-in-out;
   flex-direction: column;
 }
 .imagen {
-  height: 120px;
+  height: 250px;
+  border-radius: 10px;
   position: absolute;
   top: 10px;
-  width: 129px;
+  width: 309px;
 } 
 .columna {
   position: absolute;

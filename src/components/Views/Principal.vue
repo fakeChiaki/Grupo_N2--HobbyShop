@@ -3,7 +3,7 @@
     <div class="row">
       <card
         v-for="productos in productos"
-        :key="productos.id"
+        :id="productos.id"
         :nombreproducto="productos.nombreproducto"
         :precio="productos.precio"
         :imageUrl="productos.imageUrl"

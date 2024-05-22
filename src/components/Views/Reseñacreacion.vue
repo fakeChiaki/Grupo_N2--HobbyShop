@@ -1,6 +1,43 @@
-<script setup>
+<script >
+import axios from 'axios';
 import Header from "../Header.vue";
 
+export default {
+  components: {
+    Header
+  },
+  data() {
+    return {
+      name: '',
+      descripcion: ''
+    };
+  },
+  methods: {
+    async crear() {
+      try {
+        const response = await axios.get('http://localhost:3000/reseña');
+        const reseñas = response.data;
+
+        const lastId = reseñas.length > 0 ? reseñas[reseñas.length - 1].id : 0;
+        const newId = lastId + 1;
+
+        const nuevaReseña = {
+          id: newId,
+          nombre: this.name,
+          descripcion: this.descripcion
+        };
+        const postResponse = await axios.post('http://localhost:3000/reseña', nuevaReseña);
+        console.log('Reseña agregada:', postResponse.data);
+        alert('Reseña agregada con éxito');
+
+        this.name = '';
+        this.descripcion = '';
+      } catch (error) {
+        console.error('Error al agregar la reseña:', error);
+      }
+    }
+  }
+};
 </script>
 
 <template>
@@ -9,16 +46,12 @@ import Header from "../Header.vue";
        <h2>Reseña el producto</h2>
        <form @submit.prevent="crear">
            <div class="form-group">
-               <label for="name">Nombre del Producto</label>
-               <input type="text" id="name" v-model="name" placeholder="Inserte Producto." required>
-             
-           </div>
-           <div class="form-group-2">
-             
-               <label for="descripcion">Descripcion</label>
+               <label for="name">Nombre del Problema</label>
+               <input type="text" id="name" v-model="name" placeholder="Inserte nombre problema" required>
+             <label for="descripcion">Descripcion del Problema</label>
                <input type="text" id="descripcion" v-model="descripcion" placeholder="Ingrese una descripcion del Producto" required>   
            </div>
-           <button class="Submit" type="submit">Registrar cuenta</button>
+           <button class="Submit" type="submit">Crear reseña</button>
        </form>
    </div>
 </template>
@@ -30,7 +63,6 @@ import Header from "../Header.vue";
    margin: 0px 13rem;
    padding: 4rem 0 2rem 0;
    margin-top: 65px;
-  
    border-radius: 15px;
    font-family: Arial, sans-serif;
 }
@@ -48,25 +80,19 @@ h2 {
 
 .form-group {
    display: flex;
-   align-items: left;
+   align-items: center;
    justify-content: center;
    flex-direction: column;
-   margin: 20px 35rem 0 10rem;
+  
 }
 
-.form-group-2 {
-   display: flex;
-   align-items: left;
-   justify-content: center;
-   flex-direction: column;
-   margin: -11.6rem 1rem 0 40rem;
-}
+
 
 label {
    background-color: #528BE6;
    padding: 2px;
    border-radius: 15px;
-   margin-right: auto;
+   
    margin-bottom: 15px;
    margin-top: 15px;
    width: 120px;
@@ -85,6 +111,7 @@ input {
    color: white;
    text-align: left;
    width: 70%;
+   height: auto;
    border: none;
 }
 
