@@ -20,13 +20,47 @@ Funciones Gestión de Productos: Permiten la manipulación de los productos, con
 - Eliminación Producto
 - Creación Reseñas
 
+
+## Instalación de Proyecto
+En la consola, se debe ejecutar la siguiente secuencia de comandos:
+```
+git clone https://github.com/fakeChiaki/Grupo_N2--HobbyShop.git
+```
+Luego, se debe ir a la ruta del proyecto:
+```
+cd Grupo_N2--HobbyShop
+```
+Nota: Se debe contar con `Node.js` y `npm` con anterioridad.
+
+
 ## Setup librerias
 Instalar librerias:
+
 ```
-Validaciones hechos con Vuelidate: -npm install @vuelidate/core @vuelidate/validators
-Instalación Router: -npm install vue-router
-Instalación Axios: -npm install axios
+npm install
 ```
+
+Este comando debería instalar todas las librerias usadas dentro del proyecto. En caso de no funcionar, se pueden instalar individualmente con los siguientes comandos dentro de la consola:
+
+Vuelidate:
+
+```
+npm install @vuelidate/core @vuelidate/validators
+```
+
+Vue-Router:
+
+```
+npm install vue-router
+```
+
+Axios:
+
+```
+npm install axios
+```
+
+
 
 ## Setup JSON
 Se debe abrir una terminal integrada desde la carpeta json. Luego de esto, se debe correr el comando:
