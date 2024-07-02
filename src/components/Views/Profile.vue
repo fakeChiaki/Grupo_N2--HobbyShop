@@ -6,7 +6,7 @@
             <aside>
                 <RouterLink to="/EditProfile">Editar Perfil</RouterLink>
                 <RouterLink to="/Resena">Reseñas</RouterLink>
-                <RouterLink>Historial</RouterLink>
+                <RouterLink to="/Historial">Historial</RouterLink>
                 <RouterLink to="/Publicacion">Vender Producto</RouterLink>
             </aside>
 

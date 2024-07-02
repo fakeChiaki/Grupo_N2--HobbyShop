@@ -167,5 +167,25 @@
       "nombre": "wwe",
       "descripcion": "ww"
     }
+  ],
+  "historial": [
+    {
+      "id": "1",
+      "nombreproducto": "Figura de acción Spider-Man",
+      "precio": "19.99",
+      "imageUrl": "https://example.com/spiderman.jpg",
+      "fecha": "2021-10-10",
+      "cantidad": "1",
+      "descripcion": "Figura de acción de Spider-Man con articulaciones"
+    },
+    {
+      "id": "2",
+      "nombreproducto": "Figura de acción Darth Vader",
+      "precio": "19.99",
+      "imageUrl": "https://hasbrostore.cl/17399-large_default/figura-star-wars-obi-wan-kenobi-serie-darth-vader.jpg",
+      "fecha": "2021-10-10",
+      "cantidad": "2",
+      "descripcion": "Figura de acción de Darth Vader con sable de luz"
+    }
   ]
 }
